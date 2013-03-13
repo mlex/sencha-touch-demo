@@ -7,6 +7,16 @@ Ext.define('MovieDatabase.view.Main', {
             {
                 xtype: 'movielist'
             }
-        ]
+        ],
+        navigationBar:{
+            items:[
+                {
+                    xtype:"button",
+                    align:"right",
+                    text:"New Movie",
+                    id:"new_movie_button"
+                }
+            ]
+        }
     }
 });
