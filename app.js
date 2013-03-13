@@ -10,7 +10,9 @@ Ext.application({
 
     requires: [],
 
-    views: ['Main', 'MovieList'],
+    controllers: ['Movies'],
+
+    views: ['Main', 'MovieList', 'MovieForm'],
 
     stores: ['MovieStore'],
 
