@@ -10,7 +10,11 @@ Ext.application({
 
     requires: [],
 
-    views: ['Main'],
+    views: ['Main', 'MovieList'],
+
+    stores: ['MovieStore'],
+
+    models: ['Movie'],
 
     icon: {
         '57': 'resources/icons/Icon.png',
