@@ -15,6 +15,7 @@ Ext.define('MovieDatabase.controller.Movies', {
             'movielist':{
                 show: function() {this.getNewMovieButton().show()},
                 hide: function() {this.getNewMovieButton().hide()},
+                itemtap:'showEditMovieForm'
             },
             'movieform button': {
                 tap: 'saveMovie'
@@ -22,12 +23,19 @@ Ext.define('MovieDatabase.controller.Movies', {
         }
     },
 
+    showEditMovieForm: function(component, index, target, record) {
+        this.getMain().push({
+            xtype:"movieform",
+            record:record
+        });
+    },
+
     saveMovie: function(component) {
         var main = this.getMain();
         var newMovieButton = this.getNewMovieButton();
         var form = component.up("movieform");
 
-        var movie = Ext.create('MovieDatabase.model.Movie');
+        var movie = form.getRecord();
         form.updateRecord(movie);
 
         movie.save({
@@ -43,7 +51,8 @@ Ext.define('MovieDatabase.controller.Movies', {
 
     showCreateMovieForm: function() {
         this.getMain().push({
-            xtype: "movieform"
+            xtype: "movieform",
+            record:Ext.create('MovieDatabase.model.Movie')
         });
     }
 });
