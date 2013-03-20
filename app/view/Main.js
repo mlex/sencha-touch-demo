@@ -5,8 +5,7 @@ Ext.define('MovieDatabase.view.Main', {
     config: {
         items: [
             {
-                title: 'Movie Database',
-                html: 'Hello World'
+                xtype: 'movielist'
             }
         ]
     }
