@@ -8,14 +8,22 @@ Ext.define('MovieDatabase.controller.Movies', {
             main: 'main',
             newMovieButton: '#new_movie_button'
         },
+        routes: {
+            'movies/new': 'showCreateMovieForm',
+            'movies/:id': 'showEditMovieForm'
+        },
         control: {
             newMovieButton: {
-                tap: 'showCreateMovieForm'
+                tap: function() {
+                    this.redirectTo("movies/new");
+                }
             },
             'movielist':{
                 show: function() {this.getNewMovieButton().show()},
                 hide: function() {this.getNewMovieButton().hide()},
-                itemtap:'showEditMovieForm'
+                itemtap: function(component, index, target, record) {
+                    this.redirectTo("movies/"+record.getId());
+                }
             },
             'movieform button': {
                 tap: 'saveMovie'
@@ -23,11 +31,14 @@ Ext.define('MovieDatabase.controller.Movies', {
         }
     },
 
-    showEditMovieForm: function(component, index, target, record) {
-        this.getMain().push({
-            xtype:"movieform",
-            record:record
-        });
+    showEditMovieForm: function(id) {
+        var record = Ext.StoreManager.get('MovieStore').getById(id);
+        if (record) {
+            this.getMain().push({
+                xtype:"movieform",
+                record:record
+            });
+        }
     },
 
     saveMovie: function(component) {

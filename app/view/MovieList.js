@@ -4,6 +4,6 @@ Ext.define('MovieDatabase.view.MovieList', {
     config:{
         title:'Movie List',
         store:'MovieStore',
-        itemTpl:'<b>{title}</b><p>{description}</p>'
+        itemTpl:'<b>{title}</b><p>{description}</p><p><i>{id}</i></p>'
     }
 });
