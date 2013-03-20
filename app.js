@@ -8,9 +8,7 @@ Ext.Loader.setPath({
 Ext.application({
     name: 'MovieDatabase',
 
-    requires: [
-        'Ext.MessageBox'
-    ],
+    requires: [],
 
     views: ['Main'],
 
@@ -38,17 +36,5 @@ Ext.application({
 
         // Initialize the main view
         Ext.Viewport.add(Ext.create('MovieDatabase.view.Main'));
-    },
-
-    onUpdated: function() {
-        Ext.Msg.confirm(
-            "Application Update",
-            "This application has just successfully been updated to the latest version. Reload now?",
-            function(buttonId) {
-                if (buttonId === 'yes') {
-                    window.location.reload();
-                }
-            }
-        );
     }
 });
