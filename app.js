@@ -8,6 +8,8 @@ Ext.Loader.setPath({
 Ext.application({
     name: 'MovieDatabase',
 
+    baseUrl: 'http://localhost:8080/movies',
+
     requires: [],
 
     controllers: ['Movies'],

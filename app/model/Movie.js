@@ -8,7 +8,7 @@ Ext.define('MovieDatabase.model.Movie', {
             {name: 'description', type: 'string'}
         ],
         proxy:{
-            url:'http://localhost:8080/movies',
+            url: MovieDatabase.app.baseUrl,
             headers:{
                 'Accept':'application/json'
             },

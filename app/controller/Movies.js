@@ -53,6 +53,7 @@ Ext.define('MovieDatabase.controller.Movies', {
             success: function() {
                 Ext.StoreManager.get('MovieStore').add(movie);
                 main.pop();
+                main.getActiveItem().refresh();
             },
             failure: function() {
                 Ext.Msg.alert('Error', 'Something went wrong.');
